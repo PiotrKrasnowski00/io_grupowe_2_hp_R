@@ -14,7 +14,7 @@ def wyslij_sowe(adresat, tresc):
         return True   
 
 
-adresat = "Pierwszy adresat"
-tresc_listu = "Przykładowa treść."
-wynik = wyslij_sowe(adresat, tresc_listu)
-print("Operacja powiodła się:", wynik)
+# adresat = "Pierwszy adresat"
+# tresc_listu = "Przykładowa treść."
+# wynik = wyslij_sowe(adresat, tresc_listu)
+# print("Operacja powiodła się:", wynik)
