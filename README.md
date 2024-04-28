@@ -1,7 +1,10 @@
-<span style="color: blue;">Ravenclaw</span>
-
 <p align="center">
-  <img src="https://github.com/PiotrKrasnowski00/io_grupowe_2_hp_R/blob/hp_2_ko/imgs/ravenclaw_logo.jpg" alt="Nasze logo">
+
+<span style="color:blue;">Ravenclaw</span>
+
+<img src="https://github.com/PiotrKrasnowski00/io_grupowe_2_hp_R/blob/hp_2_ko/imgs/ravenclaw_logo.jpg" 
+alt="Nasze logo">
+
 </p>
 
 **Lista uczestników domu:**
