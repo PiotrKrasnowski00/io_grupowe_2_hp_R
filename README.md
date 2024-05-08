@@ -1,10 +1,6 @@
-<p align="center">
-
-<span style="color:blue;">Ravenclaw</span>
+$${\color{blue}Ravenclaw}$$
 
 <img src="imgs/ravenclaw_logo.jpg">
-
-</p>
 
 **Lista uczestników domu:**
 1. *Piotr Krasnowski* https://github.com/PiotrKrasnowski00
