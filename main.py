@@ -243,3 +243,4 @@ def dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, ty
 dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna)
 
 print("Dane zostały dodane do pliku poczta_nadania_lista.csv.")
+
