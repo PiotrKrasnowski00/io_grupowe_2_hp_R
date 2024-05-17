@@ -96,7 +96,6 @@ def waluta_dict_na_str():
         coins.append(str(waluta_dict["knut"]) + " knut")
     return " ".join(coins)
 
-# Testowanie funkcji
 print(waluta_dict_na_str())
 
 def waluta_str_na_dict(ciag_znakow):
