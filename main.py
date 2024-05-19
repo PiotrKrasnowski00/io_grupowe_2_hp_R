@@ -2,50 +2,54 @@ import csv
 import time
 import random
   
-def wyslij_sowe(adresat, tresc_wiadomosci):
-    # Symulacja wysyłania sowy
-    print(f"Wysłano sowę do: {adresat} z wiadomością: {tresc_wiadomosci}")
-
-def poczta_wyslij_sowy(sciezka_pliku):
-    with open(sciezka_pliku, mode='r') as file:
-        reader = csv.DictReader(file)
-        rows = list(reader)
-
-    for row in rows:
-        adresat = row['adresat']
-        tresc_wiadomosci = row['tresc_wiadomosci']
-        koszt_przesylki = float(row['koszt_przesylki'])
-        potwierdzenie_odbioru = row['potwierdzenie_odbioru']
-
-        wyslano_sowe = False  # Zakładamy, że na początku sowa nie doleciała
-
-        # Symulacja wysłania sowy - w rzeczywistości ta część będzie zależeć od sposobu wysyłki
-        # Tutaj przyjmujemy, że sowa zawsze doleci
-        wyslij_sowe(adresat, tresc_wiadomosci)
-        wyslano_sowe = True
-
-        if potwierdzenie_odbioru == 'nie':
-            rzeczywisty_koszt = koszt_przesylki
-        else:
-            rzeczywisty_koszt = 0
-
-        # Aktualizacja danych w wierszu
-        row['rzeczywisty_koszt'] = rzeczywisty_koszt
-
-    # Zapis do pliku wynikowego
-    output_file = f"output_sowy_z_poczty_{sciezka_pliku.split('.')[0]}_{sciezka_pliku.split('.')[1]}.csv"
-    with open(output_file, mode='w', newline='') as file:
-        fieldnames = ['adresat', 'tresc_wiadomosci', 'koszt_przesylki', 'potwierdzenie_odbioru', 'rzeczywisty_koszt']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-
-        writer.writeheader()
-        writer.writerows(rows)
-
-# Przykładowe użycie
-poczta_wyslij_sowy("zad.csv")
+#zadanie 2 
+def wyslij_sowe(adresat, tresc):
+    print(f"Wysyłanie sowy do: {adresat}")
+    print("Treść listu:")
+    print(tresc)
+    time.sleep(1) 
 
 
+    if random.random() < 0.1:
+        return False  
+    else:
+        return True   
 
+
+# adresat = "Pierwszy adresat"
+# tresc_listu = "Przykładowa treść."
+# wynik = wyslij_sowe(adresat, tresc_listu)
+# print("Operacja powiodła się:", wynik)
+
+
+#zadanie 3
+def sumuj_fundusze(fundusz):
+    suma_knut = sum(fundusz.get("galeon", [0])) * 17 * 21 + \
+                sum(fundusz.get("sykl", [0])) * 21 + \
+                sum(fundusz.get("knut", [0]))
+
+    suma_galeon = suma_knut // (17 * 21)
+    suma_knut %= (17 * 21)
+
+    suma_sykl = suma_knut // 21
+    suma_knut %= 21
+
+    return {
+        "galeon": suma_galeon,
+        "sykl": suma_sykl,
+        "knut": suma_knut
+    }
+
+fundusz = {
+    "galeon": [1, 3, 5],
+    "sykl": [18, 20, 10],
+    "knut": [30, 40, 7]
+}
+
+print(sumuj_fundusze(fundusz))
+
+
+#zadanie 4 
 def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     knuty = 0
     galeon = 0
@@ -80,51 +84,10 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     print(f"Knut: ", knuty)
 
 
-wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec')    
+wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec') 
 
 
-def wyslij_sowe(adresat, tresc):
-    print(f"Wysyłanie sowy do: {adresat}")
-    print("Treść listu:")
-    print(tresc)
-    time.sleep(1) 
-
-
-    if random.random() < 0.1:
-        return False  
-    else:
-        return True   
-
-
-# adresat = "Pierwszy adresat"
-# tresc_listu = "Przykładowa treść."
-# wynik = wyslij_sowe(adresat, tresc_listu)
-# print("Operacja powiodła się:", wynik)
-
-def sumuj_fundusze(fundusz):
-    suma_knut = sum(fundusz.get("galeon", [0])) * 17 * 21 + \
-                sum(fundusz.get("sykl", [0])) * 21 + \
-                sum(fundusz.get("knut", [0]))
-
-    suma_galeon = suma_knut // (17 * 21)
-    suma_knut %= (17 * 21)
-
-    suma_sykl = suma_knut // 21
-    suma_knut %= 21
-
-    return {
-        "galeon": suma_galeon,
-        "sykl": suma_sykl,
-        "knut": suma_knut
-    }
-
-fundusz = {
-    "galeon": [1, 3, 5],
-    "sykl": [18, 20, 10],
-    "knut": [30, 40, 7]
-}
-
-print(sumuj_fundusze(fundusz))
+#zadanie 5 
 def waluta_dict_na_str():
     waluta_dict = {}
     for waluta in ["galeon", "sykl", "knut"]:
@@ -143,6 +106,8 @@ def waluta_dict_na_str():
 
 print(waluta_dict_na_str())
 
+
+#zadanie 6
 def waluta_str_na_dict(ciag_znakow):
     bilony = ciag_znakow.split()
     cena = {"galeon": 0, "sykl": 0, "knut": 0} 
@@ -159,7 +124,11 @@ def waluta_str_na_dict(ciag_znakow):
 
 ciag_znakow = "17 galeon 2 sykl 13 knut"
 ceny = waluta_str_na_dict(ciag_znakow)
-print(ceny)def nadaj_sowe():
+print(ceny)
+
+
+#zadanie 7
+def nadaj_sowe():
     adresat = input("Podaj adresata: ")
     tresc_wiadomosci = input("Podaj treść wiadomości: ")
 
@@ -287,3 +256,47 @@ def dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, ty
 dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna)
 
 print("Dane zostały dodane do pliku poczta_nadania_lista.csv.")
+
+
+#zadanie 8 
+def wyslij_sowe(adresat, tresc_wiadomosci):
+    # Symulacja wysyłania sowy
+    print(f"Wysłano sowę do: {adresat} z wiadomością: {tresc_wiadomosci}")
+
+def poczta_wyslij_sowy(sciezka_pliku):
+    with open(sciezka_pliku, mode='r') as file:
+        reader = csv.DictReader(file)
+        rows = list(reader)
+
+    for row in rows:
+        adresat = row['adresat']
+        tresc_wiadomosci = row['tresc_wiadomosci']
+        koszt_przesylki = float(row['koszt_przesylki'])
+        potwierdzenie_odbioru = row['potwierdzenie_odbioru']
+
+        wyslano_sowe = False  # Zakładamy, że na początku sowa nie doleciała
+
+        # Symulacja wysłania sowy - w rzeczywistości ta część będzie zależeć od sposobu wysyłki
+        # Tutaj przyjmujemy, że sowa zawsze doleci
+        wyslij_sowe(adresat, tresc_wiadomosci)
+        wyslano_sowe = True
+
+        if potwierdzenie_odbioru == 'nie':
+            rzeczywisty_koszt = koszt_przesylki
+        else:
+            rzeczywisty_koszt = 0
+
+        # Aktualizacja danych w wierszu
+        row['rzeczywisty_koszt'] = rzeczywisty_koszt
+
+    # Zapis do pliku wynikowego
+    output_file = f"output_sowy_z_poczty_{sciezka_pliku.split('.')[0]}_{sciezka_pliku.split('.')[1]}.csv"
+    with open(output_file, mode='w', newline='') as file:
+        fieldnames = ['adresat', 'tresc_wiadomosci', 'koszt_przesylki', 'potwierdzenie_odbioru', 'rzeczywisty_koszt']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+
+        writer.writeheader()
+        writer.writerows(rows)
+
+# Przykładowe użycie
+poczta_wyslij_sowy("zad.csv")
