@@ -23,4 +23,7 @@ jobs:
       run: pip install pytest
     - name: Run tests
       run: pytest test_4.py
+    - name: Run tests5
+      run: pytest test5.py
+     
 

@@ -108,10 +108,13 @@ def waluta_dict_na_str(waluta_dict):
         coins.append(str(waluta_dict["sykl"]) + " sykl")
     if waluta_dict.get("knut", 0) > 0:
         coins.append(str(waluta_dict["knut"]) + " knut")
-    return " ".join(coins)
+    return str(" ".join(coins))
 
 # print(waluta_dict_na_str())
-
+slownik2 = {"galeon": 0,
+        "sykl": 0,
+        "knut": 13}
+waluta_dict_na_str(slownik2)
 
 #zadanie 6
 def waluta_str_na_dict(ciag_znakow):
@@ -233,7 +236,7 @@ def nadaj_sowe():
 
     # return {"PLN": koszt}
 
-def waluta_dict_na_str():
+'''def waluta_dict_na_str():
     waluta_dict = {}
     for waluta in ["galeon", "sykl", "knut"]:
         ilosc = int(input(f"Ile masz {waluta}ów? "))
@@ -247,7 +250,7 @@ def waluta_dict_na_str():
         coins.append(str(waluta_dict["sykl"]) + " sykl")
     if waluta_dict.get("knut", 0) > 0:
         coins.append(str(waluta_dict["knut"]) + " knut")
-    return " ".join(coins)
+    return " ".join(coins)'''
 
 def dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
     koszt = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
