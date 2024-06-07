@@ -46,7 +46,7 @@ fundusz = {
     "knut": [30, 40, 7]
 }
 
-print(sumuj_fundusze(fundusz))
+# print(sumuj_fundusze(fundusz))
 
 
 #zadanie 4 
@@ -79,22 +79,28 @@ def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
     elif specjalna == "list gonczy":
         knuty += 1
 
-    print(f"Galeon: ", galeon)
-    print(f"Sykl: ", sykl)
-    print(f"Knut: ", knuty)
+    return {
+        "galeon": galeon,
+        "sykl": sykl,
+        "knut": knuty
+    }
+
+    # print(f"Galeon: ", galeon)
+    # print(f"Sykl: ", sykl)
+    # print(f"Knut: ", knuty)
 
 
-wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec') 
+# wybierz_sowe_zwroc_koszt(True, 'lokalna', 'list', 'wyjec') 
 
 
 #zadanie 5 
-def waluta_dict_na_str():
-    waluta_dict = {}
-    for waluta in ["galeon", "sykl", "knut"]:
-        ilosc = int(input(f"Ile masz {waluta}ów? "))
-        if ilosc > 0:
-            waluta_dict[waluta] = ilosc
-
+def waluta_dict_na_str(waluta_dict):
+    # waluta_dict = {}
+    # for waluta in ["galeon", "sykl", "knut"]:
+    #     ilosc = int(input(f"Ile masz {waluta}ów? "))
+    #     if ilosc > 0:
+    #         waluta_dict[waluta] = ilosc
+    
     coins = []
     if waluta_dict.get("galeon", 0) > 0:
         coins.append(str(waluta_dict["galeon"]) + " galeon")
@@ -102,10 +108,13 @@ def waluta_dict_na_str():
         coins.append(str(waluta_dict["sykl"]) + " sykl")
     if waluta_dict.get("knut", 0) > 0:
         coins.append(str(waluta_dict["knut"]) + " knut")
-    return " ".join(coins)
+    return str(" ".join(coins))
 
-print(waluta_dict_na_str())
-
+# print(waluta_dict_na_str())
+slownik2 = {"galeon": 0,
+        "sykl": 0,
+        "knut": 13}
+waluta_dict_na_str(slownik2)
 
 #zadanie 6
 def waluta_str_na_dict(ciag_znakow):
@@ -122,9 +131,9 @@ def waluta_str_na_dict(ciag_znakow):
             cena['knut'] = wartosc
     return cena
 
-ciag_znakow = "17 galeon 2 sykl 13 knut"
-ceny = waluta_str_na_dict(ciag_znakow)
-print(ceny)
+# ciag_znakow = "17 galeon 2 sykl 13 knut"
+# ceny = waluta_str_na_dict(ciag_znakow)
+# print(ceny)
 
 
 #zadanie 7
@@ -186,48 +195,48 @@ def nadaj_sowe():
 
     return wiadomość
 
-wiadomosc = nadaj_sowe()
-print("\nWygenerowana wiadomość:")
-print(wiadomosc)
+# wiadomosc = nadaj_sowe()
+# print("\nWygenerowana wiadomość:")
+# print(wiadomosc)
 
 
 
-def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
-    knuty = 0
-    galeon = 0
-    sykl = 0
-    if (odleglosc == "lokalna") and (typ == "list"):
-        knuty += 2
-    elif (odleglosc == "lokalna") and (typ == "paczka"):
-        knuty += 7
+# def wybierz_sowe_zwroc_koszt(potwierdzenie_odbioru, odleglosc, typ, specjalna):
+#     knuty = 0
+#     galeon = 0
+#     sykl = 0
+#     if (odleglosc == "lokalna") and (typ == "list"):
+#         knuty += 2
+#     elif (odleglosc == "lokalna") and (typ == "paczka"):
+#         knuty += 7
 
-    if (odleglosc == "krajowa") and (typ == "list"):
-        knuty += 12
-    elif (odleglosc == "krajowa") and (typ == "paczka"):
-        sykl += 1
-        knuty += 2
+#     if (odleglosc == "krajowa") and (typ == "list"):
+#         knuty += 12
+#     elif (odleglosc == "krajowa") and (typ == "paczka"):
+#         sykl += 1
+#         knuty += 2
 
-    if (odleglosc == "dalekobiezna") and (typ == "list"):
-        knuty += 20
-    elif (odleglosc == "dalekobiezna") and (typ == "paczka"):
-        sykl += 2
-        knuty += 1
+#     if (odleglosc == "dalekobiezna") and (typ == "list"):
+#         knuty += 20
+#     elif (odleglosc == "dalekobiezna") and (typ == "paczka"):
+#         sykl += 2
+#         knuty += 1
 
-    if potwierdzenie_odbioru:
-        knuty += 7
+#     if potwierdzenie_odbioru:
+#         knuty += 7
 
-    if specjalna == "wyjec":
-        knuty += 4
-    elif specjalna == "list gonczy":
-        knuty += 1
+#     if specjalna == "wyjec":
+#         knuty += 4
+#     elif specjalna == "list gonczy":
+#         knuty += 1
 
-    print(f"Galeon: ", galeon)
-    print(f"Sykl: ", sykl)
-    print(f"Knut: ", knuty)
+#     print(f"Galeon: ", galeon)
+#     print(f"Sykl: ", sykl)
+#     print(f"Knut: ", knuty)
 
-    return {"PLN": koszt}
+    # return {"PLN": koszt}
 
-def waluta_dict_na_str():
+'''def waluta_dict_na_str():
     waluta_dict = {}
     for waluta in ["galeon", "sykl", "knut"]:
         ilosc = int(input(f"Ile masz {waluta}ów? "))
@@ -241,7 +250,7 @@ def waluta_dict_na_str():
         coins.append(str(waluta_dict["sykl"]) + " sykl")
     if waluta_dict.get("knut", 0) > 0:
         coins.append(str(waluta_dict["knut"]) + " knut")
-    return " ".join(coins)
+    return " ".join(coins)'''
 
 def dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna):
     koszt = wybierz_sowe_zwroc_koszt(odleglosc, typ, specjalna)
@@ -253,9 +262,9 @@ def dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, ty
         writer = csv.writer(file)
         writer.writerow(dane)
 
-dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna)
+# dodaj_do_csv(adresat, tresc_wiadomosci, potwierdzenie_odbioru, odleglosc, typ, specjalna)
 
-print("Dane zostały dodane do pliku poczta_nadania_lista.csv.")
+# print("Dane zostały dodane do pliku poczta_nadania_lista.csv.")
 
 
 #zadanie 8 
@@ -299,4 +308,4 @@ def poczta_wyslij_sowy(sciezka_pliku):
         writer.writerows(rows)
 
 # Przykładowe użycie
-poczta_wyslij_sowy("zad.csv")
+# poczta_wyslij_sowy("zad.csv")
