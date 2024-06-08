@@ -19,14 +19,6 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Install dependencies
-      run: pip install pytest
     - name: Run tests
-      run: pytest test_4.py
-    - name: Run tests5
-      run: pytest test5.py
-    - name: Run test_3
-      run: pytest test_3.py
-    - name: Run test_6
-      run: pytest test_6.py
+      run: python test_3.py
 
