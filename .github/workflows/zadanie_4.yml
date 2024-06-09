@@ -25,6 +25,9 @@ jobs:
       run: python test_4.py
     - name: Run tests
       run: python test5.py
+    - name: Run tests
+      run: python test_6.py
+
 
 
 
